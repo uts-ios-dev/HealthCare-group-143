@@ -25,7 +25,6 @@
 		FD893C122289C50200C059CD /* DoctorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD893C112289C50200C059CD /* DoctorHomeViewController.swift */; };
 		FD893C142289C51800C059CD /* DoctorAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD893C132289C51800C059CD /* DoctorAppointmentsViewController.swift */; };
 		FD893C192289C89800C059CD /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD893C182289C89800C059CD /* ResetPasswordViewController.swift */; };
-		FDBD04F9229223CD007D1223 /* AppointmentHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBD04F8229223CD007D1223 /* AppointmentHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		FD893C112289C50200C059CD /* DoctorHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHomeViewController.swift; sourceTree = "<group>"; };
 		FD893C132289C51800C059CD /* DoctorAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAppointmentsViewController.swift; sourceTree = "<group>"; };
 		FD893C182289C89800C059CD /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		FDBD04F8229223CD007D1223 /* AppointmentHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				C55B6CA5228EBEBC006473CB /* User.swift */,
-				FDBD04F8229223CD007D1223 /* AppointmentHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,7 +299,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDBD04F9229223CD007D1223 /* AppointmentHistory.swift in Sources */,
 				FD893C142289C51800C059CD /* DoctorAppointmentsViewController.swift in Sources */,
 				FD893C042289C32700C059CD /* LoginViewController.swift in Sources */,
 				FD893C122289C50200C059CD /* DoctorHomeViewController.swift in Sources */,

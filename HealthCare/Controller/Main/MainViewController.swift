@@ -10,7 +10,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkLoggedUser()
+//        checkLoggedUser()
         changeLayout()
         self.navigationItem.title = "Health Care"
     }
@@ -22,13 +22,13 @@ class MainViewController: UIViewController {
         signupButton.layer.masksToBounds = true
     }
     
-    func checkLoggedUser(){
-        if Auth.auth().currentUser?.uid != nil{
-            //let uid = Auth.auth().currentUser?.uid
-            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController")
-            self.navigationController?.pushViewController(homeViewController!, animated: false)
-        }
-    }
+//    func checkLoggedUser(){
+//        if Auth.auth().currentUser?.uid != nil{
+//            //let uid = Auth.auth().currentUser?.uid
+//            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController")
+//            self.navigationController?.pushViewController(homeViewController!, animated: false)
+//        }
+//    }
     
     @IBAction func signupView(_ sender: UIButton) {
         performSegue(withIdentifier: "registerView", sender: self)

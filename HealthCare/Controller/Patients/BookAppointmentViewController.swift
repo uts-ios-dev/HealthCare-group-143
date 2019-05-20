@@ -40,30 +40,19 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     }
     
     func userAppointment(){
-        // This will add on the user database
-//        let userID = (Auth.auth().currentUser?.uid)!
+
     self.appointmentUser.child(userID).child("AppointmentsDetails").child("DoctorName").setValue(doctorName.text)
     self.appointmentUser.child(userID).child("AppointmentsDetails").child("Time").setValue(datePicked.text)
+        self.appointmentUser.child(userID).child("AppointmentsDetails").child("Appointment ID").setValue(key)
     }
     func addAppointment(){
-        // This will add to the appointment database
-        
-        
-//        let userID = (Auth.auth().currentUser?.uid)!
-        let appointments = ["Appointment Time":datePicked.text,"Doctor Name":doctorName.text,"UserID: ":userID]
-//        appointment.child(key!).setValue(appointments)
+
+        let appointments = ["Appointment Time":datePicked.text,"Doctor Name":doctorName.text,"UserID":userID,"Appointment ID":key]
+
         appointment.child(key!).setValue(appointments)
-//        userAppointment()
-//        addToHistory()
+
     }
-    
-    func addToHistory(){
-//        let userID = (Auth.auth().currentUser?.uid)!
-        self.appointmentHistory.child(userID).child("Appointments").child(key).child("User Email").setValue(patient)
-        self.appointmentHistory.child(userID).child("Appointments").child(key).child("Appointment Time").setValue(datePicked.text)
-        self.appointmentHistory.child(userID).child("Appointments").child(key).child("Doctor Name").setValue(doctorName.text)
-//        self.appointmentHistory.child(userID).child("Status:").setValue("Appointed")// This value must depemd upon the user interaction with the appointment. (Appointed, Cancelled or Deleted)
-    }
+
     @IBAction func datePicker(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
@@ -76,7 +65,7 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     @IBAction func bookAppointment(_ sender: UIButton) {
         addAppointment()
         userAppointment()
-        addToHistory()
+
         performSegue(withIdentifier: "bookAppointment", sender: self)
     }
     
