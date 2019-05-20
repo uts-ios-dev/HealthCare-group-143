@@ -253,7 +253,6 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logout:" destination="hke-Mx-qDd" eventType="touchUpInside" id="djB-jZ-3mr"/>
-                                    <action selector="saveAppointments:" destination="U4x-DB-3vM" eventType="touchUpInside" id="1mv-GU-sAj"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-T3-Owq">
@@ -311,56 +310,12 @@
                     </view>
                     <connections>
                         <outlet property="appointmentTv" destination="A9f-T3-Owq" id="ZnI-RT-q41"/>
-                        <segue destination="U4x-DB-3vM" kind="show" identifier="doctorUpdateAppointment" id="ylb-In-DXm"/>
                         <segue destination="fLZ-Kq-MyO" kind="show" identifier="logOutDoctor" id="xBU-nZ-w8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4g-kN-aZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="840.57971014492762" y="714.50892857142856"/>
-        </scene>
-        <!--Doctor Appointments View Controller-->
-        <scene sceneID="0ZS-xt-hzv">
-            <objects>
-                <viewController id="U4x-DB-3vM" customClass="DoctorAppointmentsViewController" customModule="HealthCare" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fz0-xn-RyE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Update Appointments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoq-HV-gOF">
-                                <rect key="frame" x="19" y="157" width="376" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G'day: Doctor's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-Al-rvh">
-                                <rect key="frame" x="18" y="106" width="167" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAY-Ll-tEi">
-                                <rect key="frame" x="0.0" y="701" width="414" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveAppointments:" destination="U4x-DB-3vM" eventType="touchUpInside" id="DuP-a4-36Y"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xKW-BJ-ECV"/>
-                    </view>
-                    <connections>
-                        <segue destination="hke-Mx-qDd" kind="show" identifier="saveAppointment" id="69F-Xh-2tA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i1c-ge-RTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1587" y="715"/>
         </scene>
         <!--Book Appointment View Controller-->
         <scene sceneID="5vE-o1-8I4">
@@ -509,7 +464,6 @@
                                 <connections>
                                     <action selector="logout:" destination="hke-Mx-qDd" eventType="touchUpInside" id="gMH-1A-3ab"/>
                                     <action selector="logoutPatient:" destination="M8f-zF-coa" eventType="touchUpInside" id="fAp-qr-DRD"/>
-                                    <action selector="saveAppointments:" destination="U4x-DB-3vM" eventType="touchUpInside" id="Pmw-7e-Yg4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMl-qZ-nfO">

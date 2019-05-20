@@ -3,7 +3,7 @@ import Firebase
 
 struct appointmentStruct {
     let Uid : String!
-    //let Id : String!
+    let Id : String!
     let Time : String!
 }
 
@@ -23,14 +23,14 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
         ref?.child("Appointment").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let value = snapshot.value as? [String: Any] else{return}
             let time = value["Appointment Time"] as? String
-            // let id = value["id"] as? String
+             let id = value["id"] as? String
             let uid = value["UserID"] as? String
             
             guard let time1 = time else{return}
-            //guard let id1 = id else{return}
+            guard let id1 = id else{return}
             guard let uid1 = uid else{return}
             
-            self.appointments.append(appointmentStruct(Uid: uid1, Time: time1))
+            self.appointments.append(appointmentStruct(Uid: uid1, Id: id1, Time: time1))
             self.appointmentTv.reloadData()
         }) {(error) in
             print(error.localizedDescription)
@@ -66,16 +66,25 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
         createAlert()
     }
     
     func createAlert(){
         let title = "Reminder"
         let message = "Are you sure to Cancel the Appointment"
-        let okTitle = "Cancel"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: okTitle, style: .cancel, handler: nil)
-        alert.addAction(okButton)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            self.ref.child("Appointment").child(self.appointments[self.myIndex].Id).removeValue()
+            self.appointments.remove(at:self.myIndex)
+            self.appointmentTv.reloadData()
+        })
+        
         self.present(alert,animated: true, completion: nil)
     }
 }
