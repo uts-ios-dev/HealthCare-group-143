@@ -117,7 +117,7 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
     
     func addUser(uid: String){
         let genderString = genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!
-        let user = ["uid": uid, "firstName": firstNameTextField.text!, "lastName": lastNameTextField.text!, "dateOfBirth": dateString, "gender": genderString, "address": addressTextField.text!, "phone": phoneTextField.text!, "email": emailTextField.text!]
+        let user = ["uid": uid, "firstName": firstNameTextField.text!, "lastName": lastNameTextField.text!, "dateOfBirth": dateString, "gender": genderString, "address": addressTextField.text!, "phone": phoneTextField.text!, "email": emailTextField.text!, "role": "user"]
         //let key = userReference.childByAutoId().key
         userReference.child(uid).setValue(user)
     }

@@ -7,7 +7,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var signupButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLoggedUser()
@@ -23,10 +23,10 @@ class MainViewController: UIViewController {
     }
     
     func checkLoggedUser(){
-        if Auth.auth().currentUser?.uid != nil{
+        if Auth.auth().currentUser?.uid != nil{//loggined
             //let uid = Auth.auth().currentUser?.uid
-            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController")
-            self.navigationController?.pushViewController(homeViewController!, animated: false)
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+            self.present(vc, animated: false, completion: nil)
         }
     }
     

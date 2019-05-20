@@ -63,9 +63,10 @@ class EditProfileViewController: UIViewController {
                 let gender = dict["gender"] as? String,
                 let address = dict["address"] as? String,
                 let phone = dict["phone"] as? String,
-                let email = dict["email"] as? String{
+                let email = dict["email"] as? String,
+                let role = dict["role"] as? String{
             
-                userProfile = User(uid: snapshot.key, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, gender: gender, address: address, phone: phone, email: email)
+                userProfile = User(uid: snapshot.key, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, gender: gender, address: address, phone: phone, email: email, role: role)
                 print(userProfile as Any)
                 if(userProfile != nil){
                     self.firstNameTextField.text = userProfile?.firstName
