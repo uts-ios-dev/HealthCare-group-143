@@ -1,39 +1,64 @@
 import UIKit
 import Firebase
 
-class HistoryTableViewController: UITableViewController {
+struct AppointmentStruct {
+    let appointmentTime:String!
+    let doctorName:String!
+    let appointmentStatus:String!
+}
 
-    var uid:String = ""
-    var appointmentHistory:DatabaseReference!
-    var randomAppointmentKey = Database.database().reference().child("Appointment").childByAutoId()
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var ref :DatabaseReference!
+    var appointmentsList = [AppointmentStruct]()
     
-    var appointmentsHistory = [AppointmentHistory]()
-    
+    @IBOutlet weak var appointmentTv: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = (Auth.auth().currentUser?.uid)!
-        appointmentHistory = Database.database().reference().child("Appointment History").child(user).child("Appointments")
+//        let user = (Auth.auth().currentUser?.uid)!
+//        appointmentHistory = Database.database().reference().child("Appointment History").child(user).child("Appointments")
+        appointmentTv.dataSource = self
+        appointmentTv.delegate = self
+        
+        ref = Database.database().reference()
+        ref?.child("Appointment History/FEmkRzUGKva6VQqcg2hc1Y039t92/Appointments").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+            guard let value = snapshot.value as? [String: Any] else{return}
+            let time = value["Appointment Time"] as? String
+            let name = value["Doctor Name"] as? String
+            
+            guard let time1 = time else{return}
+            //guard let id1 = id else{return}
+            guard let name1 = name else{return}
+            
+            self.appointmentsList.append(AppointmentStruct(appointmentTime: time1, doctorName: name1, appointmentStatus: "true"))
+            self.appointmentTv.reloadData()
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
         
     }
+        
+        
+        
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-
-    
-    func getData(){
-        appointmentHistory.queryOrderedByKey().observe(.childAdded, with:  {
-            snapshot in
-            let appTime = snapshot.value(forKey: "Appointment Time") as! String
-            let doctorName = snapshot.value(forKey: "Doctor Name") as! String
-//            let appStatus = snapshot.value("Appointed")
-            self.appointmentsHistory.insert(AppointmentHistory(appointmentTime: appTime, doctorName: doctorName, appointmentStatus: "Appointed"), at:  0)
-        } )
-    }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return appointmentsList.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            
+            let label1 = cell?.viewWithTag(1) as! UILabel
+            label1.text = appointmentsList[indexPath.row].doctorName
+            let label2 = cell?.viewWithTag(2) as! UILabel
+            label2.text = appointmentsList[indexPath.row].appointmentTime
+            let label3 = cell?.viewWithTag(3) as! UILabel
+            label3.text = appointmentsList[indexPath.row].appointmentStatus
+            
+            return cell!
+        }
+   
     }
 
 
