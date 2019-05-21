@@ -42,10 +42,10 @@ class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         let label1 = cell?.viewWithTag(1) as! UILabel
-        label1.text = "Doctor Name: \(appointmentHistory[indexPath.row].doctorName)"
+        label1.text = appointmentHistory[indexPath.row].doctorName
         
         let label2 = cell?.viewWithTag(2) as! UILabel
-        label2.text = "Time: \(appointmentHistory[indexPath.row].appointmentTime)"
+        label2.text = appointmentHistory[indexPath.row].appointmentTime
         
         return cell!
     }

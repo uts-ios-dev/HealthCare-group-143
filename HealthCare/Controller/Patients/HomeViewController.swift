@@ -101,10 +101,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         let label1 = cell?.viewWithTag(1) as! UILabel
-        label1.text = "Appointment Time: \(String(describing: appointment[indexPath.row].appointmentTime))"
+        label1.text = appointment[indexPath.row].appointmentTime
         
         let label2 = cell?.viewWithTag(2) as! UILabel
-        label2.text = "Doctor Name: \(String(describing: appointment[indexPath.row].doctorName))"
+        label2.text = appointment[indexPath.row].doctorName
         
         return cell!
     }

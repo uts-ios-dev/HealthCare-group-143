@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import FirebaseAnalytics
 
 
@@ -10,17 +11,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
+    var userProfile:User?
     
     
     //Move TextField when typing
     var activeTextField: UITextField!
     
+    var roleReference = Database.database().reference().child("User")
     override func viewDidLoad() {
         super.viewDidLoad()
         changeLayout()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
-        
+       
         //Move TextField when typing
         let center: NotificationCenter = NotificationCenter.default;
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -73,7 +76,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if user != nil{
-                    self.performSegue(withIdentifier: "loginHome", sender: self)
+                let userID = Auth.auth().currentUser?.uid
+                self.roleReference.child(userID!).child("role").observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let accountType = snapshot.value as? String{
+                        if accountType == "user"{
+                            self.performSegue(withIdentifier: "loginHome", sender: self)
+                        }
+                        if accountType == "doctor"{
+                            self.performSegue(withIdentifier: "doctorHomeView", sender: self)
+                        }
+                    }
+                })
             }
             else{
                 let title = "Error"
@@ -84,18 +97,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 else if(self.passwordTextField.text! == ""){
                     message = "Please fill in your password"
                 }
-                
+
                 let okTitle = "Dismiss"
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 let okButton = UIAlertAction(title: okTitle, style: .cancel, handler: nil)
                 alert.addAction(okButton)
-                
+
                 self.present(alert,animated: true, completion: nil)
-                
+
             }
         }
         
     }
+    
+    
+    
     
     
     @IBAction func resetPassword(_ sender: UIButton) {
