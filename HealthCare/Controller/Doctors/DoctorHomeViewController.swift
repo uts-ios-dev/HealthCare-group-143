@@ -9,29 +9,50 @@ struct appointmentStruct {
 
 class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var appointmentTv: UITableView!
+    @IBOutlet weak var doctorNameLbl: UILabel!
+    
     var ref: DatabaseReference!
     var appointments = [appointmentStruct]()
     var myIndex = 0
+    var doctorName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationItem.title = "Update Schedules"
         appointmentTv.dataSource = self
         appointmentTv.delegate = self
-        
         ref = Database.database().reference()
+        
+        //get doctor name
+        let authUI = Auth.auth().currentUser?.uid
+        ref.child("User/\(authUI!)").observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String: Any] else{return}
+            let firstName = value["firstName"] as! String
+            let lastName = value["lastName"] as! String
+            let doctorName =  "\(firstName) " + "\(lastName)"
+            
+            self.doctorName = doctorName
+            self.doctorNameLbl.text = doctorName
+        }
+        
+        
+        
         ref?.child("Appointment").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let value = snapshot.value as? [String: Any] else{return}
             let time = value["Appointment Time"] as? String
-             let id = value["id"] as? String
+            let id = value["Appointment ID"] as? String
             let uid = value["UserID"] as? String
+            let docName = value["Doctor Name"] as? String
             
             guard let time1 = time else{return}
             guard let id1 = id else{return}
             guard let uid1 = uid else{return}
+            guard let doctorName1 = docName else{return}
             
-            self.appointments.append(appointmentStruct(Uid: uid1, Id: id1, Time: time1))
-            self.appointmentTv.reloadData()
+            if doctorName1 == self.doctorName{
+                self.appointments.append(appointmentStruct(Uid: uid1, Id: id1, Time: time1))
+                self.appointmentTv.reloadData()
+            }
         }) {(error) in
             print(error.localizedDescription)
         }
@@ -57,7 +78,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
             guard let value = snapshot.value as? [String: Any] else{return}
             let firstName = value["firstName"] as! String
             let lastName = value["lastName"] as! String
-            let patientName = "\(lastName) " + "\(firstName)"
+            let patientName = "\(firstName) " + "\(lastName)"
             label1.text = patientName
         }
         
@@ -81,7 +102,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (action) in
             alert.dismiss(animated: true, completion: nil)
             
-            self.ref.child("Appointment").child(self.appointments[self.myIndex].Id).removeValue()
+        self.ref.child("Appointment").child(self.appointments[self.myIndex].Id).removeValue()
             self.appointments.remove(at:self.myIndex)
             self.appointmentTv.reloadData()
         })
