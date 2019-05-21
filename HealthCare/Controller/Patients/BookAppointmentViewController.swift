@@ -41,9 +41,9 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     func userAppointment(){
 
-    self.appointmentUser.child(userID).child("AppointmentsDetails").child("DoctorName").setValue(doctorName.text)
-    self.appointmentUser.child(userID).child("AppointmentsDetails").child("Time").setValue(datePicked.text)
-        self.appointmentUser.child(userID).child("AppointmentsDetails").child("Appointment ID").setValue(key)
+    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("DoctorName").setValue(doctorName.text)
+    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("Time").setValue(datePicked.text)
+    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("Appointment ID").setValue(key)
     }
     func addAppointment(){
 
@@ -51,6 +51,12 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
 
         appointment.child(key!).setValue(appointments)
 
+    }
+    
+    func appointmentsHistory(){
+        self.appointmentHistory.child(userID).child(key).child("Doctor name").setValue(doctorName.text)
+        self.appointmentHistory.child(userID).child(key).child("Time").setValue(datePicked.text)
+        self.appointmentHistory.child(userID).child(key).child("User ID").setValue(userID)
     }
 
     @IBAction func datePicker(_ sender: UIDatePicker) {
@@ -65,7 +71,7 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     @IBAction func bookAppointment(_ sender: UIButton) {
         addAppointment()
         userAppointment()
-
+        appointmentsHistory()
         performSegue(withIdentifier: "bookAppointment", sender: self)
     }
     

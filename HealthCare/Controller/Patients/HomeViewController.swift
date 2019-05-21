@@ -1,120 +1,48 @@
 import UIKit
-import FirebaseDatabase
 import Firebase
 
-class HomeViewController: UIViewController{
-    
-    
-    var appointment = [String]()
+struct Appointment {
+    let appointmentTime:String!
+    let doctorName:String!
+}
+
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+    var appointments:DatabaseReference!
+    var appointment = [Appointment]()
     var appointmentHandle:DatabaseHandle?
     var patient:DatabaseHandle?
     var uid:String = ""
-    
-    var userReference:DatabaseReference!
+    var appointmentListReference:DatabaseReference!
+
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var patientName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Dashboard"
         self.navigationItem.hidesBackButton = true
-        checkLoggedUser()
-        
+        tableView.dataSource = self
+        tableView.delegate = self
+//        key = appointments.childByAutoId().key
         let userID = (Auth.auth().currentUser?.uid)!
-        userReference = Database.database().reference().child("User").child(userID)
-        getAppointment()
-        getProfile()
+        //        getAppointment()
+        appointmentListReference = Database.database().reference()
+        appointmentListReference?.child("User").child(userID).child("AppointmentsDetails").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else{return}
+            let appTime = value["Time"] as? String
+            let doctorName = value["DoctorName"] as? String
+            guard let appTime1 = appTime else{return}
+            guard let doctorName1 = doctorName else{return}
+            self.appointment.append(Appointment(appointmentTime: appTime1, doctorName: doctorName1))
+            self.tableView.reloadData()
+        }){(error) in
+            print(error.localizedDescription)
+        }
         let user = Auth.auth().currentUser
         if let user = user{
             patientName.text = "\(user.email!)"
         }
     }
-    func checkLoggedUser(){
-        if Auth.auth().currentUser?.uid == nil{
-            //go to login page
-        }
-        else{
-            //get profile to identify whether doctor or user
-//            getProfile()
-            if(UserDefaults.standard.string(forKey: "role") != nil){
-                let roleString = UserDefaults.standard.string(forKey: "role")
-                if(roleString == "doctor"){
-                    
-                    //Go to doctor view
-                    print("I am a doctor")
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoctorView") as UIViewController
-                    // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
-                    
-                    self.present(viewController, animated: false, completion: nil)
-                }
-                else{
-                    //Stay on this view.
-                    print("I am a user")
-                }
-            }
-        }
-    }
-    
-    
-    func getProfile(){
-        var userProfile:User?
-        
-        
-        
-        userReference?.observe(.value, with: { snapshot in
-            
-            print(snapshot.value as Any)
-            //            print((snapshot.childSnapshot(forPath: "email").value)!) // I was testing here - By Pramish
-            if let dict = snapshot.value as? [String:Any],
-                let uid = dict["uid"] as? String,
-                let firstName = dict["firstName"] as? String,
-                let lastName = dict["lastName"] as? String,
-                let dateOfBirth = dict["dateOfBirth"] as? String,
-                let gender = dict["gender"] as? String,
-                let address = dict["address"] as? String,
-                let phone = dict["phone"] as? String,
-                let email = dict["email"] as? String,
-                let role = dict["role"] as? String
-            {
-                
-                userProfile = User(uid: snapshot.key, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, gender: gender, address: address, phone: phone, email: email,role:role)
-                print(userProfile as Any)
-                if(userProfile != nil){
-                    if(userProfile?.role == "doctor"){
-                        UserDefaults.standard.set("Doctor", forKey: "role")
-                        //Go to doctor view
-                        print("I am a doctor")
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoctorView") as UIViewController
-                        // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
-                        
-                        self.present(viewController, animated: false, completion: nil)
-                    }
-                    else{
-                        //Stay on this view.
-                        print("I am a user")
-                    }
-                    
-//                    print(self.roleString)
-                }
-                
-            }
-        })
-        
-        
-    }
-    
-    
-    
-  
-    
-    func getAppointment(){
-        let appointmentData = Database.database().reference()
-        appointmentHandle =  appointmentData.child("User").child((Auth.auth().currentUser?.uid)!).child("AppointmentsDetails").observe(.childAdded) { (snapshot) in
-            let appointment = snapshot.value as? String
-            if let actualAppointment = appointment{
-                    self.appointment.append(actualAppointment)
-            }
-            
-        }
-    }
+
     
     @objc func handleLogout(){
         do{
@@ -133,7 +61,7 @@ class HomeViewController: UIViewController{
     
     
     @IBAction func editProfile(_ sender: UIButton) {
-        getAppointment()
+//        getAppointment()
         performSegue(withIdentifier: "editProfile", sender: self)
     }
     
@@ -164,6 +92,21 @@ class HomeViewController: UIViewController{
         }
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appointment.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let label1 = cell?.viewWithTag(1) as! UILabel
+        label1.text = "Appointment Time: \(String(describing: appointment[indexPath.row].appointmentTime))"
+        
+        let label2 = cell?.viewWithTag(2) as! UILabel
+        label2.text = "Doctor Name: \(String(describing: appointment[indexPath.row].doctorName))"
+        
+        return cell!
     }
     
 }

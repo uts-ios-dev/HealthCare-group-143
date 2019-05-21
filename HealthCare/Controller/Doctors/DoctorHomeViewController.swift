@@ -48,6 +48,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+    
         
         //get user name by uid from firebase
         let label1 = cell?.viewWithTag(1) as! UILabel
