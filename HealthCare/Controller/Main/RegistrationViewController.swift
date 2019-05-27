@@ -81,6 +81,7 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
         }
     }
     
+    //Move view when opens the keyboard
     @objc func keyboardWillHide(notification: Notification){
         UIView.animate(withDuration: 0.25, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.view.frame = CGRect(x:0, y:0, width: self.view.bounds.width, height: self.view.bounds.height)
@@ -101,11 +102,13 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    //Change layout
     func changeLayout(){
         registerButton.layer.cornerRadius = 10.0
         registerButton.layer.masksToBounds = true
     }
     
+    //Get date from date Picker
     @IBAction func datePicker(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
@@ -115,6 +118,7 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
     }
     
     
+    //Upload user data to Firebase
     func addUser(uid: String){
         let genderString = genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!
         let user = ["uid": uid, "firstName": firstNameTextField.text!, "lastName": lastNameTextField.text!, "dateOfBirth": dateString, "gender": genderString, "address": addressTextField.text!, "phone": phoneTextField.text!, "email": emailTextField.text!, "role": "user"]
@@ -122,6 +126,8 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
         userReference.child(uid).setValue(user)
     }
     
+    
+    //Go to Register view
     @IBAction func registerPage(_ sender: UIButton) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!){autoResult, error in
             if(autoResult != nil){

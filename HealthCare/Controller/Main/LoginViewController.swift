@@ -152,7 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
 
 
 
-
+    //Funciton when you click button on reset password
     @IBAction func resetPassword(_ sender: UIButton) {
         var title = "Forgot Password"
         var message = "Do you want to reset your password?"
@@ -160,7 +160,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
 
-
+        //Check is email text field empty
         if(email != ""){
             self.present(alert,animated: true, completion: nil)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { (action) in
@@ -173,7 +173,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                     alert2.addAction(UIAlertAction(title: "Dismiss", style: .default))
                     self.present(alert2,animated: true, completion: nil)
                     if(error != nil){
-                        message = "Error was happen \(error)"
+                        message = "Error was happen \(error!)"
                         let alert2 = UIAlertController(title: title, message: message, preferredStyle: .alert)
                         alert2.addAction(UIAlertAction(title: "Dismiss", style: .default))
                         self.present(alert2,animated: true, completion: nil)
@@ -189,6 +189,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         }
     }
 
+    //Go to signup view
     @IBAction func SignupView(_ sender: UIButton) {
         performSegue(withIdentifier: "SignupView", sender: self)
     }

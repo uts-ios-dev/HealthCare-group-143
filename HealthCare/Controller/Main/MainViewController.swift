@@ -10,11 +10,12 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        checkLoggedUser()
         changeLayout()
         self.navigationItem.title = "Health Care"
     }
 
+    
+    //Change button layout
     func changeLayout(){
         bannerImageView.image = UIImage(named:"banner")
         logoImageView.image = UIImage(named: "logo")
@@ -22,6 +23,7 @@ class MainViewController: UIViewController {
         signupButton.layer.masksToBounds = true
     }
 
+    //Check whether login or not
     func checkLoggedUser(){
         if Auth.auth().currentUser?.uid != nil{//loggined
             //let uid = Auth.auth().currentUser?.uid
@@ -30,9 +32,12 @@ class MainViewController: UIViewController {
         }
     }
 
+    //Go to Signup view
     @IBAction func signupView(_ sender: UIButton) {
         performSegue(withIdentifier: "registerView", sender: self)
     }
+    
+    //Go to Login view
     @IBAction func loginView(_ sender: UIButton) {
         performSegue(withIdentifier: "loginView", sender: self)
     }

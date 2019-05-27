@@ -40,7 +40,7 @@ class ResetPasswordViewController: UIViewController {
             Auth.auth().currentUser?.updatePassword(to: password!) { (error) in
                 if((error) != nil){
                     let title = "Error"
-                    let message = "Error was happen \(error)"
+                    let message = "Error was happen \(error!)"
                     let okTitle = "Dismiss"
                     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     let okButton = UIAlertAction(title: okTitle, style: .cancel, handler: nil)

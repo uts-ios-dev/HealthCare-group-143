@@ -31,6 +31,7 @@ class EditProfileViewController: UIViewController ,UITextFieldDelegate{
         self.hideKeyboard()
     }
 
+    //check whether login or not
     func checkLoggedUser(){
         if Auth.auth().currentUser?.uid == nil{
 
@@ -40,20 +41,22 @@ class EditProfileViewController: UIViewController ,UITextFieldDelegate{
         }
     }
 
+    
+    //change layout
     func changeLayout(){
         saveButton.layer.cornerRadius = 10.0
         saveButton.layer.masksToBounds = true
 
     }
 
+    //Get user data from firebase
     func getProfile(){
         var userProfile:User?
         userReference?.observe(.value, with: { snapshot in
 
             print(snapshot.value as Any)
-//            print((snapshot.childSnapshot(forPath: "email").value)!) // I was testing here - By Pramish
             if let dict = snapshot.value as? [String:Any],
-                let uid = dict["uid"] as? String,
+                let _ = dict["uid"] as? String,
                 let firstName = dict["firstName"] as? String,
                 let lastName = dict["lastName"] as? String,
                 let dateOfBirth = dict["dateOfBirth"] as? String,
