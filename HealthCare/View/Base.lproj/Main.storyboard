@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-102.89855072463769" y="-61.607142857142854"/>
+            <point key="canvasLocation" x="-406" y="-557"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="j6Q-vb-lPz">
@@ -342,7 +342,7 @@
                     <connections>
                         <outlet property="appointmentTv" destination="A9f-T3-Owq" id="ZnI-RT-q41"/>
                         <outlet property="doctorNameLbl" destination="MTG-Gb-3ZF" id="Tce-gd-uqT"/>
-                        <segue destination="fLZ-Kq-MyO" kind="show" identifier="logOutDoctor" id="xBU-nZ-w8F"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logOutDoctor" id="M7K-vL-cSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4g-kN-aZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,11 +367,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-na-i9y">
                                 <rect key="frame" x="0.0" y="624" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45882352941176469" green="0.23529411764705882" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.52462844503604922" green="0.48441891276266313" blue="0.59607843137254901" alpha="0.74668236301369861" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Confirm Appointment">
-                                    <color key="titleColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="bookAppointment:" destination="lvA-oy-6tK" eventType="touchUpInside" id="MxK-yG-Wfy"/>
@@ -434,11 +434,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsG-07-rfB">
                                 <rect key="frame" x="0.0" y="689" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45882352939999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelAppointment:" destination="lvA-oy-6tK" eventType="touchUpInside" id="NIV-Kr-c1s"/>
@@ -471,15 +470,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G'day " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUL-Iw-ISH">
-                                <rect key="frame" x="7" y="144" width="310" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-NF-G1S">
-                                <rect key="frame" x="0.0" y="254" width="414" height="459"/>
+                                <rect key="frame" x="0.0" y="496" width="414" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -542,14 +534,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Appointments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-dc-Cdg">
-                                <rect key="frame" x="20" y="191" width="374" height="51"/>
+                                <rect key="frame" x="20" y="423" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G'day " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUL-Iw-ISH">
+                                <rect key="frame" x="104" y="85" width="310" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="Pxd-E9-yHb">
+                                <rect key="frame" x="0.0" y="159" width="414" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DVv-X0-UAS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Appointments" image="viewappointment" id="RIQ-Y1-HcV">
@@ -817,19 +820,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBC-1w-6pc">
-                                        <rect key="frame" x="8" y="76" width="121" height="43"/>
+                                        <rect key="frame" x="0.0" y="34" width="121" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.45882352939999999" green="0.23529411759999999" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="backToHome:" destination="JA2-Sv-VfF" eventType="touchUpInside" id="XRf-2Y-PqO"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1020,6 +1023,18 @@
                                     <segment title="Female"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQP-Wo-PAa">
+                                <rect key="frame" x="1" y="809" width="397" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.26607478890000003" green="0.221209555" blue="0.50812975890000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Already have an account?">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginView:" destination="3wT-U6-msb" eventType="touchUpInside" id="EZw-xT-q9H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Vrh-RI-uBP"/>
@@ -1036,6 +1051,7 @@
                         <outlet property="phoneTextField" destination="aS6-1U-IWS" id="2y8-ep-7f5"/>
                         <outlet property="registerButton" destination="2rN-gE-YxO" id="NYg-Ww-kAt"/>
                         <segue destination="OtW-2O-Jk8" kind="show" identifier="registerHome" id="Rbh-Je-a68"/>
+                        <segue destination="fLZ-Kq-MyO" kind="show" identifier="login" id="EH1-ib-Xjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AG6-MC-LXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1070,6 +1086,7 @@
     </scenes>
     <resources>
         <image name="add" width="36" height="36"/>
+        <image name="banner" width="1024" height="683"/>
         <image name="history" width="36" height="36"/>
         <image name="logout" width="225" height="225"/>
         <image name="notes" width="36" height="36"/>
@@ -1077,11 +1094,11 @@
         <image name="viewappointment" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AtB-gi-sx4"/>
+        <segue reference="RqS-ye-TOk"/>
         <segue reference="u4e-Ul-Zqq"/>
         <segue reference="imU-oU-UGv"/>
         <segue reference="s5S-xJ-t4o"/>
-        <segue reference="xBU-nZ-w8F"/>
-        <segue reference="lki-Hb-E7g"/>
+        <segue reference="EH1-ib-Xjr"/>
+        <segue reference="M7K-vL-cSz"/>
     </inferredMetricsTieBreakers>
 </document>

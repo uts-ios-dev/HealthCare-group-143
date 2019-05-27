@@ -32,6 +32,9 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
     var dateString:String = ""
     var uid:String = ""
     
+    @IBAction func loginView(_ sender: UIButton) {
+        performSegue(withIdentifier: "login", sender: self)
+    }
     //Move TextField when typing
     var activeTextField: UITextField!
     override func viewDidLoad() {
