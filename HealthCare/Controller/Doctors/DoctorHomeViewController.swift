@@ -86,7 +86,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
         let title = "Reminder"
         let message = "Are you sure to Cancel the Appointment"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (action) in
+        alert.addAction(UIAlertAction(title: "Write Note", style: UIAlertAction.Style.default) { (action) in
             alert.dismiss(animated: true, completion: nil)
         })
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (action) in
