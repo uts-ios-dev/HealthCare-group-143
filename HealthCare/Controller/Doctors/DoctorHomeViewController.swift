@@ -42,7 +42,15 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        performSegue(withIdentifier: "logOutDoctor", sender: self)
+        do{
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "logOutDoctor", sender: self)
+        }
+        catch let logout{
+            print(logout)
+        }
+
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

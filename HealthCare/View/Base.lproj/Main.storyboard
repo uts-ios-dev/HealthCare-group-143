@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fLZ-Kq-MyO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fLZ-Kq-MyO">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1086,7 +1086,7 @@
     </scenes>
     <resources>
         <image name="add" width="36" height="36"/>
-        <image name="banner" width="1024" height="683"/>
+        <image name="banner" width="245.75999450683594" height="163.91999816894531"/>
         <image name="history" width="36" height="36"/>
         <image name="logout" width="225" height="225"/>
         <image name="notes" width="36" height="36"/>
@@ -1094,11 +1094,11 @@
         <image name="viewappointment" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RqS-ye-TOk"/>
+        <segue reference="2Jc-De-cXE"/>
         <segue reference="u4e-Ul-Zqq"/>
         <segue reference="imU-oU-UGv"/>
         <segue reference="s5S-xJ-t4o"/>
         <segue reference="EH1-ib-Xjr"/>
-        <segue reference="M7K-vL-cSz"/>
+        <segue reference="FOF-Hr-fcv"/>
     </inferredMetricsTieBreakers>
 </document>
