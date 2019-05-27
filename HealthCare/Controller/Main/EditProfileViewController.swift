@@ -2,9 +2,8 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController ,UITextFieldDelegate{
 
-    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,6 +16,7 @@ class EditProfileViewController: UIViewController {
     var userReference:DatabaseReference!
     var dateString:String = ""
     var uid:String = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,8 @@ class EditProfileViewController: UIViewController {
         userReference = Database.database().reference().child("User").child(uid)
         changeLayout()
         getProfile()
+        
+        self.hideKeyboard()
     }
 
     func checkLoggedUser(){
@@ -39,8 +41,6 @@ class EditProfileViewController: UIViewController {
     }
 
     func changeLayout(){
-        profileImage.layer.cornerRadius = 50.0
-        profileImage.layer.masksToBounds = true
         saveButton.layer.cornerRadius = 10.0
         saveButton.layer.masksToBounds = true
 
@@ -87,6 +87,9 @@ class EditProfileViewController: UIViewController {
     }
 
     @IBAction func saveDetails(_ sender: UIButton) {
+        let genderString = genderTextField.titleForSegment(at: genderTextField.selectedSegmentIndex)!
+        let user = ["uid": uid, "firstName": firstNameTextField.text!, "lastName": lastNameTextField.text!, "dateOfBirth": dateOfBirthTextField.text!, "gender": genderString, "address": addressTextField.text!, "phone": phoneTextField.text!, "email": emailTextField.text!, "role": "user"]
+        userReference.setValue(user)
         performSegue(withIdentifier: "saveDetail", sender: self)
     }
 }
