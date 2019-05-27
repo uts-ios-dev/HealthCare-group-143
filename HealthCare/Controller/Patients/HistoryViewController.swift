@@ -9,12 +9,15 @@ struct AppointmentStruct {
 class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 
+    @IBOutlet weak var patientName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let userID = (Auth.auth().currentUser?.uid)!
     var appointmentHistory = [AppointmentStruct]()
     var appointmentReference:DatabaseReference!
 
     override func viewDidLoad() {
+        let name = Auth.auth().currentUser?.email
+        patientName.text = name
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self

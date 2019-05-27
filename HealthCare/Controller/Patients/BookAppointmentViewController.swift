@@ -41,9 +41,9 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     func userAppointment(){
 
-    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("DoctorName").setValue(doctorName.text)
-    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("Time").setValue(datePicked.text)
-    self.appointmentUser.child(userID).child("AppointmentsDetails").child(key).child("Appointment ID").setValue(key)
+    self.appointmentUser.child(userID).child("Appointments").child(key).child("DoctorName").setValue(doctorName.text)
+    self.appointmentUser.child(userID).child("Appointments").child(key).child("Time").setValue(datePicked.text)
+        self.appointmentUser.child(userID).child("Appointments").child(key).child("Appointment ID").setValue(key) 
     }
     func addAppointment(){
 

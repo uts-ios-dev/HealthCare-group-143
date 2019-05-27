@@ -2,8 +2,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseAnalytics
-
-
 class LoginViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var passwordTextField: UITextField!
@@ -71,18 +69,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         loginButton.layer.masksToBounds = true 
     }
     
+    
     @IBAction func loginView(_ sender: UIButton) {
-        
-        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if user != nil{
                 let userID = Auth.auth().currentUser?.uid
                 self.roleReference.child(userID!).child("role").observeSingleEvent(of: .value, with: { (snapshot) in
                     if let accountType = snapshot.value as? String{
                         if accountType == "user"{
+                            
                             self.performSegue(withIdentifier: "loginHome", sender: self)
                         }
                         if accountType == "doctor"{
+                            
                             self.performSegue(withIdentifier: "doctorHomeView", sender: self)
                         }
                     }
