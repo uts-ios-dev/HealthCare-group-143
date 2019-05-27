@@ -13,6 +13,7 @@ class CancelAppointmentViewController: UIViewController,UITableViewDelegate,UITa
 
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var patientsName: UILabel!
+    var patient = ""
     var appReference:DatabaseReference = Database.database().reference().child("Appointment")
     var key:String! = ""
     var reference:DatabaseReference!
@@ -24,10 +25,23 @@ class CancelAppointmentViewController: UIViewController,UITableViewDelegate,UITa
         reference = Database.database().reference().child("User").child(userID!).child("Appointments")
         key = appReference.childByAutoId().key
         super.viewDidLoad()
-        let user = Auth.auth().currentUser
-        if let user = user{
-            patientsName.text = "\(user.email!)"
+        reference.child("User").child(userID!).observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else{return}
+                let firstName = value["firstName"] as! String
+                let lastName = value["lastName"] as! String
+                let patientName =  "\(firstName) " + "\(lastName)"
+                self.patient = patientName
+                self.patientsName.text = "G'day \(self.patient)"
         }
+//        appointmentUser.child(userID).observeSingleEvent(of: .value) { (snapshot) in
+//            guard let value = snapshot.value as? [String:Any] else{return}
+//            let firstName = value["firstName"] as! String
+//            let lastName = value["lastName"] as! String
+//            let patientName =  "\(firstName) " + "\(lastName)"
+//            self.patient = patientName
+//            self.patientsName.text = "Hello \(self.patient)"
+//        }
+
        getData()
     }
     

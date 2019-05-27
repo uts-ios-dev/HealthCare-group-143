@@ -20,6 +20,7 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     var appointTime:String = ""
     var userID:String = ""
     var key:String! = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Book Appointment"
@@ -27,12 +28,24 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
         appointment = Database.database().reference().child("Appointment")
         appointmentHistory = Database.database().reference().child("Appointment History")
         key = appointment.childByAutoId().key
+        
         userID = (Auth.auth().currentUser?.uid)!
-        let user = Auth.auth().currentUser
-        if let user = user{
-            patientsName.text = "\(user.email!)"
-            patient = patientsName.text!
+        appointmentUser.child(userID).observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else{return}
+            let firstName = value["firstName"] as! String
+            let lastName = value["lastName"] as! String
+            let patientName =  "\(firstName) " + "\(lastName)"
+            self.patient = patientName
+            self.patientsName.text = "G'day \(self.patient)"
         }
+//        ref.child("User/\(authUI!)").observeSingleEvent(of: .value) { (snapshot) in
+//            guard let value = snapshot.value as? [String: Any] else{return}
+//            let firstName = value["firstName"] as! String
+//            let lastName = value["lastName"] as! String
+
+//
+//            self.doctorName = doctorName
+//            self.doctorNameLbl.text = doctorName
     }
     
     @IBAction func cancelAppointment(_ sender: UIButton) {

@@ -11,13 +11,19 @@ class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBOutlet weak var patientName: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var patient = ""
     let userID = (Auth.auth().currentUser?.uid)!
     var appointmentHistory = [AppointmentStruct]()
     var appointmentReference:DatabaseReference!
 
     override func viewDidLoad() {
-        let name = Auth.auth().currentUser?.email
-        patientName.text = name
+        
+//        guard let value = snapshot.value as? [String:Any] else{return}
+//        //            let firstName = value["firstName"] as! String
+//        //            let lastName = value["lastName"] as! String
+//        //            let patientName =  "\(firstName) " + "\(lastName)"
+//        //            self.patient = patientName
+//        //            self.patientsName.text = "Hello \(self.patient)"
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
@@ -32,6 +38,14 @@ class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 self.tableView.reloadData()
             }){(error) in
                 print(error.localizedDescription)
+        }
+        appointmentReference.child("User").child(userID).observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else{return}
+            let firstName = value["firstName"] as! String
+            let lastName = value["lastName"] as! String
+            let patientsName = "\(firstName)" + "\(lastName)"
+            self.patient = patientsName
+            self.patientName.text = "G'day \(self.patient)"
         }
 
     }

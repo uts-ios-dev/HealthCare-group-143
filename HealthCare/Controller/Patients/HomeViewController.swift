@@ -21,6 +21,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let userID = Auth.auth().currentUser?.uid
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var patientName: UILabel!
+    var patientss = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -28,8 +29,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 //        key = appointments.childByAutoId().key
         //        getAppointment()
         appointmentListReference = Database.database().reference();
-    
-         appointmentListReference?.child("User").child(userID!).child("Appointments").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+        appointmentListReference?.child("User").child(userID!).child("Appointments").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let value = snapshot.value as? [String:Any] else{return}
             let appID = value["Appointment ID"] as? String
             let appTime = value["Time"] as? String
@@ -41,9 +41,13 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }){(error) in
             print(error.localizedDescription)
         }
-        let user = Auth.auth().currentUser
-        if let user = user{
-            patientName.text = "\(user.email!)"
+        appointmentListReference.child("User").child(userID!).observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else{return}
+            let firstName = value["firstName"] as! String
+            let lastName = value["lastName"] as! String
+            let patientName =  "\(firstName) " + "\(lastName)"
+            self.patientss = patientName
+            self.patientName.text = "G'day \(self.patientss)"
         }
     }
 
