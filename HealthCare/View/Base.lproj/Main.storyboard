@@ -349,6 +349,40 @@
             </objects>
             <point key="canvasLocation" x="1750.7246376811595" y="714.50892857142856"/>
         </scene>
+        <!--Doctor Details View Controller-->
+        <scene sceneID="6hi-p7-PxE">
+            <objects>
+                <viewController storyboardIdentifier="DoctorDetailsViewController" title="Doctor Details View Controller" id="wLE-55-IwK" customClass="DoctorDetailsViewController" customModule="HealthCare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IgW-IQ-sTf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appointment ID: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9o-va-F8e">
+                                <rect key="frame" x="20" y="92" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAr-wi-whw">
+                                <rect key="frame" x="157" y="92" width="174" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5aw-7P-G4N"/>
+                    </view>
+                    <connections>
+                        <outlet property="appointmentIDLabel" destination="HAr-wi-whw" id="Njx-ng-PVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1y-fe-0AX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.985507246377" y="707.8125"/>
+        </scene>
         <!--Add Appointment-->
         <scene sceneID="5vE-o1-8I4">
             <objects>
@@ -1095,10 +1129,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RqS-ye-TOk"/>
-        <segue reference="u4e-Ul-Zqq"/>
+        <segue reference="Ijb-nF-FII"/>
         <segue reference="imU-oU-UGv"/>
         <segue reference="s5S-xJ-t4o"/>
-        <segue reference="EH1-ib-Xjr"/>
+        <segue reference="ZWb-S6-tZS"/>
         <segue reference="M7K-vL-cSz"/>
     </inferredMetricsTieBreakers>
 </document>
