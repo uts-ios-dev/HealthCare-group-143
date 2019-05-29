@@ -12,9 +12,10 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     var doctors:[String] = ["Atif Gill","Sharad Ghimire","Rohit Gurung"]
     @IBOutlet weak var doctorPicker: UIPickerView!
     @IBOutlet weak var doctorName: UILabel!
-    @IBOutlet weak var datePickered: UIDatePicker!
-    @IBOutlet weak var datePicked: UILabel!
     @IBOutlet weak var patientsName: UILabel!
+    @IBOutlet weak var datePic: UITextField!
+    private var mydatePicked:UIDatePicker?
+    
     var patient:String = ""
     var doctorname:String = ""
     var appointTime:String = ""
@@ -22,6 +23,16 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     var key:String! = ""
     
     override func viewDidLoad() {
+        mydatePicked = UIDatePicker()
+        mydatePicked?.datePickerMode = .dateAndTime
+        datePic.inputView = mydatePicked
+        
+        //This is to pick a date and time for the appointment
+        mydatePicked?.addTarget(self, action: #selector(BookAppointmentViewController.dateChanged(mydatePicked:)), for: .valueChanged)
+        //This is for when you tap outside screen, then your date picker will disappear.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BookAppointmentViewController.viewTap(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+        
         super.viewDidLoad()
         self.navigationItem.title = "Book Appointment"
         appointmentUser = Database.database().reference().child("User")
@@ -38,14 +49,19 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
             self.patient = patientName
             self.patientsName.text = "G'day \(self.patient)"
         }
-//        ref.child("User/\(authUI!)").observeSingleEvent(of: .value) { (snapshot) in
-//            guard let value = snapshot.value as? [String: Any] else{return}
-//            let firstName = value["firstName"] as! String
-//            let lastName = value["lastName"] as! String
-
-//
-//            self.doctorName = doctorName
-//            self.doctorNameLbl.text = doctorName
+    }
+    @objc func dateChanged(mydatePicked:UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let currentDate = NSDate()
+        mydatePicked.minimumDate = currentDate as Date
+        mydatePicked.date = currentDate as Date
+        datePic.text = dateFormatter.string(from: mydatePicked.date)
+    }
+    
+    @objc func viewTap(gesture:UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     @IBAction func cancelAppointment(_ sender: UIButton) {
@@ -55,12 +71,12 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     func userAppointment(){
 
     self.appointmentUser.child(userID).child("Appointments").child(key).child("DoctorName").setValue(doctorName.text)
-    self.appointmentUser.child(userID).child("Appointments").child(key).child("Time").setValue(datePicked.text)
+    self.appointmentUser.child(userID).child("Appointments").child(key).child("Time").setValue(datePic.text)
         self.appointmentUser.child(userID).child("Appointments").child(key).child("Appointment ID").setValue(key) 
     }
     func addAppointment(){
 
-        let appointments = ["Appointment Time":datePicked.text,"Doctor Name":doctorName.text,"UserID":userID,"Appointment ID":key]
+        let appointments = ["Appointment Time":datePic.text!,"Doctor Name":doctorName.text,"UserID":userID,"Appointment ID":key]
 
         appointment.child(key!).setValue(appointments)
 
@@ -68,17 +84,8 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     func appointmentsHistory(){
         self.appointmentHistory.child(userID).child(key).child("Doctor name").setValue(doctorName.text)
-        self.appointmentHistory.child(userID).child(key).child("Time").setValue(datePicked.text)
+        self.appointmentHistory.child(userID).child(key).child("Time").setValue(datePic.text)
         self.appointmentHistory.child(userID).child(key).child("User ID").setValue(userID)
-    }
-
-    @IBAction func datePicker(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        let dateString = dateFormatter.string(from: datePickered.date)
-        datePicked.text = dateString
-        
     }
     
     @IBAction func bookAppointment(_ sender: UIButton) {

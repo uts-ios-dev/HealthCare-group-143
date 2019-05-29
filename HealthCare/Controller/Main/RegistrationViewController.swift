@@ -28,6 +28,7 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var genderSegment: UISegmentedControl!
     @IBOutlet weak var registerButton: UIButton!
     
+    //For Validations
     var userReference:DatabaseReference!
     var dateString:String = ""
     var uid:String = ""
@@ -35,6 +36,10 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
     @IBAction func loginView(_ sender: UIButton) {
         performSegue(withIdentifier: "login", sender: self)
     }
+    
+    
+    
+    
     //Move TextField when typing
     var activeTextField: UITextField!
     override func viewDidLoad() {
@@ -90,7 +95,7 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
             self.view.frame = CGRect(x:0, y:0, width: self.view.bounds.width, height: self.view.bounds.height)
         }, completion: nil)
     }
-    //When typeing in textfield
+    //When typing in textfield
     func textFieldDidBeginEditing(_ textField: UITextField){
         activeTextField = textField
     }
@@ -139,6 +144,8 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
                 self.performSegue(withIdentifier: "registerHome", sender: self)
             }
             else{
+        
+            
                 let title = "Error"
                 var message = "Error: + \(error!)"
                 if(self.emailTextField.text! == ""){
@@ -147,15 +154,16 @@ class RegistrationViewController: UIViewController ,UITextFieldDelegate{
                 else if(self.passwordTextField.text! == ""){
                     message = "Please fill in your password"
                 }
-                
+
                 let okTitle = "Dismiss"
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 let okButton = UIAlertAction(title: okTitle, style: .cancel, handler: nil)
                 alert.addAction(okButton)
-                
-                self.present(alert,animated: true, completion: nil)            }
+
+                self.present(alert,animated: true, completion: nil)
+//
+            }
+        }
         }
         
     }
-    
-}
