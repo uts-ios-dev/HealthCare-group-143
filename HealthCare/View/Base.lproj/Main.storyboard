@@ -262,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="1705.7971014492755" y="-62.276785714285708"/>
         </scene>
-        <!--ffff-->
+        <!--Doctor Home View Controller-->
         <scene sceneID="3d2-IC-Q9N">
             <objects>
                 <viewController storyboardIdentifier="DoctorView" id="hke-Mx-qDd" customClass="DoctorHomeViewController" customModule="HealthCare" customModuleProvider="target" sceneMemberID="viewController">
@@ -339,9 +339,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="P1T-uT-5Oo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ffff" id="98s-Cg-AM9">
-                        <barButtonItem key="backBarButtonItem" title="hello" id="N2d-Rx-fjf"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="appointmentTv" destination="A9f-T3-Owq" id="ZnI-RT-q41"/>
                         <outlet property="doctorNameLbl" destination="MTG-Gb-3ZF" id="Tce-gd-uqT"/>
@@ -350,22 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4g-kN-aZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2213" y="660"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ryX-zD-mNe">
-            <objects>
-                <viewController id="fEF-7F-NSg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2kt-QU-dcN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5q4-Wl-qqL"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6tq-XI-H9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3062" y="660"/>
+            <point key="canvasLocation" x="1750.7246376811595" y="714.50892857142856"/>
         </scene>
         <!--Add Appointment-->
         <scene sceneID="5vE-o1-8I4">
