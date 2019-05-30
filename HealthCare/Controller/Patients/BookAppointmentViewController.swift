@@ -9,7 +9,7 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     var appointment:DatabaseReference!
     var appointmentHistory:DatabaseReference!
     
-    var doctors:[String] = ["Atif Gill","Sharad Ghimire","Rohit Gurung"]
+    var doctors:[String] = ["Atif Gill","Sharad Ghimire","Rohit Gurung","Hadrian Lee"]
     @IBOutlet weak var doctorPicker: UIPickerView!
     @IBOutlet weak var doctorName: UILabel!
     @IBOutlet weak var patientsName: UILabel!

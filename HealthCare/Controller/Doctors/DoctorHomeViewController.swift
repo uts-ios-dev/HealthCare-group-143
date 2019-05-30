@@ -71,7 +71,10 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
-        createAlert()
+        //createAlert()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController")
+        self.present(vc!, animated: true, completion: nil
+        )
     }
     
     func createAlert(){
