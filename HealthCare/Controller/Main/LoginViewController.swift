@@ -118,10 +118,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                     if let accountType = snapshot.value as? String{
                         if accountType == "user"{
                             UserDefaults.standard.set("user", forKey: "role")
+                            
                             self.performSegue(withIdentifier: "loginHome", sender: self)
                         }
                         if accountType == "doctor"{
                             UserDefaults.standard.set("doctor", forKey: "role")
+                            
                             self.performSegue(withIdentifier: "doctorHomeView", sender: self)
                         }
                     }
@@ -193,5 +195,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBAction func SignupView(_ sender: UIButton) {
         performSegue(withIdentifier: "SignupView", sender: self)
     }
+    
+    
 
 }
