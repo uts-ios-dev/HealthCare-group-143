@@ -3,12 +3,40 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in DoctorNoteViewController.getHistory(appointmentID:):DoctorNoteViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "history.appointmentID">
+            </PersistentString>
+            <PersistentString
+               value = "appointmentID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DoctorNoteViewController.getAppointments():DoctorNoteViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.viewWillAppear(_:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "role">
+            </PersistentString>
+            <PersistentString
+               value = "Auth.auth().currentUser?.uid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.checkLoggedUser():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "Auth.auth().currentUser?.uid">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DoctorNoteViewController.pickerView(_:didSelectRow:inComponent:):DoctorNoteViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

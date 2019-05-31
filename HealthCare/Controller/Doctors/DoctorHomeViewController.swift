@@ -42,7 +42,13 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        performSegue(withIdentifier: "logOutDoctor", sender: self)
+        do{
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "logOutDoctor", sender: self)
+        }
+        catch let logout{
+            print(logout)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,9 +78,9 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
         //createAlert()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController")
-        self.present(vc!, animated: true, completion: nil
-        )
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as! DoctorDetailsViewController
+        vc.aID = self.appointments[myIndex].Id
+        self.present(vc, animated: true, completion: nil)
     }
     
     func createAlert(){

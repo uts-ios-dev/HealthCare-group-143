@@ -34,7 +34,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewWillLayoutSubviews() {
         checkUser()
     }
-
     @objc func checkUser(){
         if Auth.auth().currentUser?.uid != nil{
             let role = UserDefaults.standard.string(forKey: "role")
@@ -52,21 +51,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 }
             }
             else{
-                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "homeViewController")
+                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBar")
                 let viewController = self
                 // Present the view controller
                 let currentViewController = UIApplication.shared.keyWindow?.rootViewController
-                currentViewController?.dismiss(animated: true, completion: nil)
+                currentViewController?.dismiss(animated: false, completion: nil)
 
                 if viewController.presentedViewController == nil {
-                    currentViewController?.present(vc, animated: true, completion: nil)
+                    currentViewController?.present(vc, animated: false, completion: nil)
                 } else {
-                    viewController.present(vc, animated: true, completion: nil)
+                    viewController.present(vc, animated: false, completion: nil)
                 }
             }
 
         }
     }
+    
+    
+    
 
     @objc func keyboardDidShow(notification: Notification){
         let info:NSDictionary = notification.userInfo! as NSDictionary
@@ -95,7 +97,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification,object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -110,6 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
 
 
     @IBAction func loginView(_ sender: UIButton) {
+        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             let roleReference = Database.database().reference().child("User")
             if user != nil{
@@ -145,6 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 self.present(alert,animated: true, completion: nil)
 
             }
+            
         }
 
     }

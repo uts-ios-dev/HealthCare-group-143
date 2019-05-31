@@ -17,13 +17,6 @@ class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var appointmentReference:DatabaseReference!
 
     override func viewDidLoad() {
-        
-//        guard let value = snapshot.value as? [String:Any] else{return}
-//        //            let firstName = value["firstName"] as! String
-//        //            let lastName = value["lastName"] as! String
-//        //            let patientName =  "\(firstName) " + "\(lastName)"
-//        //            self.patient = patientName
-//        //            self.patientsName.text = "Hello \(self.patient)"
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
