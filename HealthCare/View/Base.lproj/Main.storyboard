@@ -477,7 +477,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-na-i9y">
-                                <rect key="frame" x="0.0" y="624" width="414" height="57"/>
+                                <rect key="frame" x="0.0" y="695" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.52462844503604922" green="0.48441891276266313" blue="0.59607843137254901" alpha="0.74668236301369861" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
@@ -497,23 +497,8 @@
                                 <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doctor: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLi-pJ-SQV">
-                                <rect key="frame" x="0.0" y="227" width="414" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-MT-MIX">
-                                <rect key="frame" x="130" y="227" width="284" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsG-07-rfB">
-                                <rect key="frame" x="0.0" y="689" width="414" height="57"/>
+                                <rect key="frame" x="0.0" y="760" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -524,21 +509,47 @@
                                     <action selector="cancelAppointment:" destination="lvA-oy-6tK" eventType="touchUpInside" id="NIV-Kr-c1s"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Pick a date." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-xd-gGP">
-                                <rect key="frame" x="82" y="153" width="332" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AE2-i5-loL">
-                                <rect key="frame" x="0.0" y="322" width="414" height="168"/>
+                                <rect key="frame" x="0.0" y="519" width="414" height="168"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="lvA-oy-6tK" id="M0a-rv-S0I"/>
                                     <outlet property="delegate" destination="lvA-oy-6tK" id="zHS-5D-5VR"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doctor: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLi-pJ-SQV">
+                                <rect key="frame" x="0.0" y="447" width="414" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-MT-MIX">
+                                <rect key="frame" x="130" y="447" width="284" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dxq-bq-Wbz">
+                                <rect key="frame" x="0.0" y="210" width="414" height="229"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="580897632.42307401">
+                                    <!--2019-05-30 08:27:12 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="en_AU"/>
+                                <connections>
+                                    <action selector="applintmentDatePicker:" destination="lvA-oy-6tK" eventType="valueChanged" id="Rvg-M8-b3E"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-uf-sIM">
+                                <rect key="frame" x="100" y="153" width="314" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="1" green="0.93251866409999995" blue="0.95022119979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.66864191041795518" green="0.83751755952835083" blue="0.60940593078866434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -546,9 +557,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Appointment" image="add" selectedImage="add" id="GR3-Iu-1zC"/>
                     <connections>
-                        <outlet property="datePic" destination="0cM-xd-gGP" id="9gE-aU-0xA"/>
+                        <outlet property="datePicker" destination="Dxq-bq-Wbz" id="axN-pZ-No6"/>
                         <outlet property="doctorName" destination="8iB-MT-MIX" id="bmz-hs-La0"/>
                         <outlet property="doctorPicker" destination="AE2-i5-loL" id="Avn-ND-Mge"/>
+                        <outlet property="patientName" destination="Up0-uf-sIM" id="0ZS-Ug-8S8"/>
                         <outlet property="patientsName" destination="QXo-Kd-QzN" id="o1u-MQ-n7v"/>
                         <segue destination="OtW-2O-Jk8" kind="show" identifier="bookAppointment" id="RqS-ye-TOk"/>
                     </connections>
@@ -1289,5 +1301,11 @@
         <segue reference="vGE-CZ-5eU"/>
         <segue reference="ZWb-S6-tZS"/>
         <segue reference="FOF-Hr-fcv"/>
+        <segue reference="RqS-ye-TOk"/>
+        <segue reference="u4e-Ul-Zqq"/>
+        <segue reference="imU-oU-UGv"/>
+        <segue reference="s5S-xJ-t4o"/>
+        <segue reference="EH1-ib-Xjr"/>
+        <segue reference="lki-Hb-E7g"/>
     </inferredMetricsTieBreakers>
 </document>
