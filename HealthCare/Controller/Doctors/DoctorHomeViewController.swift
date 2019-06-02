@@ -1,18 +1,13 @@
 import UIKit
 import Firebase
 
-struct appointmentStruct {
-    let Uid : String!
-    let Id : String!
-    let Time : String!
-}
 
 class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var appointmentTv: UITableView!
     @IBOutlet weak var doctorNameLbl: UILabel!
     
     var ref: DatabaseReference!
-    var appointments = [appointmentStruct]()
+    var appointments = [Appointments]()
     var myIndex = 0
     
     override func viewDidLoad() {
@@ -110,15 +105,11 @@ class DoctorHomeViewController: UIViewController, UITableViewDataSource, UITable
             let uid = value["UserID"] as? String
             let docName = value["Doctor Name"] as? String
             
-            guard let time1 = time else{return}
-            guard let id1 = id else{return}
-            guard let uid1 = uid else{return}
-            guard let doctorName1 = docName else{return}
-            
-            if doctorName1 == doctorName{
-                self.appointments.append(appointmentStruct(Uid: uid1, Id: id1, Time: time1))
+            if(docName == doctorName){
+                self.appointments.append(Appointments(Uid: uid!, Id: id!, Time: time!, DoctorName: docName!))
                 self.appointmentTv.reloadData()
             }
+            
         })
     }
 }

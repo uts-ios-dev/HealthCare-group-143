@@ -27,10 +27,13 @@ class DoctorNoteViewController: UIViewController , UIPickerViewDataSource, UIPic
         
         appointmentListPicker.dataSource = self
         appointmentListPicker.delegate = self
+        historyTextView.isEditable = false
+        messageTextView.isEditable = false
+        medicationTextView.isEditable = false
         
         userID = Auth.auth().currentUser!.uid
         historyReference = Database.database().reference().child("History")
-        appointmentReference = Database.database().reference().child("Appointment History").child(userID)
+        appointmentReference = Database.database().reference().child("Appointment")
         getAppointments()
     }
     
@@ -60,12 +63,14 @@ class DoctorNoteViewController: UIViewController , UIPickerViewDataSource, UIPic
             print(snapshot.value as Any)
             for child in (snapshot.children.allObjects as? [DataSnapshot])!{
                 if let value = child.value as? [String:Any],
-                    let uid = value["User ID"] as? String,
-                    let time = value["Time"] as? String,
-                    let doctorName = value["Doctor name"] as? String{
-                    
-                    let appointment = Appointments(Uid: uid, Id: child.key, Time: time, DoctorName: doctorName)
-                    self.appointmentsList.append(appointment)
+                    let uid = value["UserID"] as? String,
+                    let id = value["Appointment ID"] as? String,
+                    let time = value["Appointment Time"] as? String,
+                    let doctorName = value["Doctor Name"] as? String{
+                    let appointment = Appointments(Uid: uid, Id: id, Time: time, DoctorName: doctorName)
+                    if(appointment.Uid == self.userID){
+                        self.appointmentsList.append(appointment)
+                    }
                 }
             }
             if(self.appointmentsList.count>0){
@@ -81,7 +86,7 @@ class DoctorNoteViewController: UIViewController , UIPickerViewDataSource, UIPic
     
     func getHistory(aID:String){
         historyReference?.observe(.value, with: {snapshot in
-            print(snapshot.value as? Any)
+            print(snapshot.value as? Any!)
             for child in (snapshot.children.allObjects as? [DataSnapshot])!{
                 if let value = child.value as? [String:Any],
                     let appointmentID = value["appointmentID"] as? String,

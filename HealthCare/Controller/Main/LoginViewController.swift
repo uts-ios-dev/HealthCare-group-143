@@ -34,6 +34,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewWillLayoutSubviews() {
         checkUser()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        checkUser()
+        
+    }
+    
+    
     @objc func checkUser(){
         if Auth.auth().currentUser?.uid != nil{
             let role = UserDefaults.standard.string(forKey: "role")
@@ -42,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 let viewController = self
                 // Present the view controller
                 let currentViewController = UIApplication.shared.keyWindow?.rootViewController
-                currentViewController?.dismiss(animated: true, completion: nil)
+                currentViewController?.dismiss(animated: false, completion: nil)
 
                 if viewController.presentedViewController == nil {
                     currentViewController?.present(vc, animated: false, completion: nil)
