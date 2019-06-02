@@ -140,7 +140,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SignupView:" destination="fLZ-Kq-MyO" eventType="touchUpInside" id="dDF-TG-tra"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="SignupView" id="FOF-Hr-fcv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,6 +156,7 @@
                         <outlet property="passwordTextField" destination="LeY-0T-mjP" id="VBz-62-rnE"/>
                         <segue destination="OtW-2O-Jk8" kind="show" identifier="loginHome" id="2Jc-De-cXE"/>
                         <segue destination="hke-Mx-qDd" kind="show" identifier="doctorHomeView" id="Xat-Op-rts"/>
+                        <segue destination="3wT-U6-msb" kind="show" identifier="SignupView" id="Dkp-VE-Rir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAG-me-N4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -500,7 +500,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-NF-G1S">
-                                <rect key="frame" x="0.0" y="496" width="414" height="186"/>
+                                <rect key="frame" x="0.0" y="496" width="414" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1112,7 +1112,8 @@
         <image name="viewappointment" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RqS-ye-TOk"/>
+        <segue reference="U2I-d4-SwW"/>
+        <segue reference="Dkp-VE-Rir"/>
         <segue reference="u4e-Ul-Zqq"/>
         <segue reference="imU-oU-UGv"/>
         <segue reference="s5S-xJ-t4o"/>

@@ -195,7 +195,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBAction func SignupView(_ sender: UIButton) {
         performSegue(withIdentifier: "SignupView", sender: self)
     }
-    
-    
-
 }
