@@ -26,8 +26,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-//        key = appointments.childByAutoId().key
-        //        getAppointment()
+        
         appointmentListReference = Database.database().reference();
         appointmentListReference?.child("User").child(userID!).child("Appointments").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let value = snapshot.value as? [String:Any] else{return}
@@ -52,16 +51,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     
-    @objc func handleLogout(){
-        do{
-            try Auth.auth().signOut()
-            performSegue(withIdentifier: "logoutPatient", sender: self)
-        }
-        catch let logout{
-            print(logout)
-        }
-        
-    }
+   
 
     @IBAction func bookAppointment(_ sender: UIButton) {
         

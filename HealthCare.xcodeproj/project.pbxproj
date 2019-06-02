@@ -10,6 +10,9 @@
 		BC2A6E629C1575CE169F786F /* Pods_HealthCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4643266F5B197DF93FCEA4 /* Pods_HealthCare.framework */; };
 		C55B6CA6228EBEBC006473CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B6CA5228EBEBC006473CB /* User.swift */; };
 		C5A67CF6229C46140089F09D /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A67CF5229C46140089F09D /* DoctorDetailsViewController.swift */; };
+		C5CEAFF022A0312A00FFB407 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEAFEF22A0312A00FFB407 /* Appointments.swift */; };
+		C5F34F7322A051DC009EFDEA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F34F7222A051DC009EFDEA /* History.swift */; };
+		C5F34F7522A05613009EFDEA /* DoctorNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F34F7422A05613009EFDEA /* DoctorNoteViewController.swift */; };
 		FD893BEE2289835200C059CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD893BED2289835200C059CD /* AppDelegate.swift */; };
 		FD893BF02289835200C059CD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD893BEF2289835200C059CD /* MainViewController.swift */; };
 		FD893BF32289835200C059CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD893BF12289835200C059CD /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 		C55417B08D8199F0131D161D /* Pods-HealthCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCare.debug.xcconfig"; path = "Target Support Files/Pods-HealthCare/Pods-HealthCare.debug.xcconfig"; sourceTree = "<group>"; };
 		C55B6CA5228EBEBC006473CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C5A67CF5229C46140089F09D /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
+		C5CEAFEF22A0312A00FFB407 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
+		C5F34F7222A051DC009EFDEA /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		C5F34F7422A05613009EFDEA /* DoctorNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorNoteViewController.swift; sourceTree = "<group>"; };
 		FD893BEA2289835200C059CD /* HealthCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD893BED2289835200C059CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD893BEF2289835200C059CD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				C55B6CA5228EBEBC006473CB /* User.swift */,
+				C5CEAFEF22A0312A00FFB407 /* Appointments.swift */,
+				C5F34F7222A051DC009EFDEA /* History.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 				FD893C0D2289C37C00C059CD /* HistoryViewController.swift */,
 				FD893C072289C34B00C059CD /* HomeViewController.swift */,
 				FD893C052289C33700C059CD /* BookAppointmentViewController.swift */,
+				C5F34F7422A05613009EFDEA /* DoctorNoteViewController.swift */,
 			);
 			path = Patients;
 			sourceTree = "<group>";
@@ -306,9 +315,12 @@
 				FD893C022289C31500C059CD /* RegistrationViewController.swift in Sources */,
 				FD893C062289C33700C059CD /* BookAppointmentViewController.swift in Sources */,
 				C55B6CA6228EBEBC006473CB /* User.swift in Sources */,
+				C5CEAFF022A0312A00FFB407 /* Appointments.swift in Sources */,
 				FD893C102289C38D00C059CD /* CancelAppointmentViewController.swift in Sources */,
 				FD893BF02289835200C059CD /* MainViewController.swift in Sources */,
 				FD893BEE2289835200C059CD /* AppDelegate.swift in Sources */,
+				C5F34F7522A05613009EFDEA /* DoctorNoteViewController.swift in Sources */,
+				C5F34F7322A051DC009EFDEA /* History.swift in Sources */,
 				FD893C192289C89800C059CD /* ResetPasswordViewController.swift in Sources */,
 				C5A67CF6229C46140089F09D /* DoctorDetailsViewController.swift in Sources */,
 				FD893C0E2289C37C00C059CD /* HistoryViewController.swift in Sources */,

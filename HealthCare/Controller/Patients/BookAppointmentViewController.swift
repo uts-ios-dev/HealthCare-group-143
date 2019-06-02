@@ -32,7 +32,6 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
         self.navigationItem.title = "Book Appointment"
         appointmentUser = Database.database().reference().child("User")
         appointment = Database.database().reference().child("Appointment")
-        appointmentHistory = Database.database().reference().child("Appointment History")
         key = appointment.childByAutoId().key
         
         userID = (Auth.auth().currentUser?.uid)!
@@ -63,16 +62,9 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
 
     }
     
-    func appointmentsHistory(){
-        self.appointmentHistory.child(userID).child(key).child("Doctor name").setValue(doctorName.text)
-        self.appointmentHistory.child(userID).child(key).child("Time").setValue(patientName.text)
-        self.appointmentHistory.child(userID).child(key).child("User ID").setValue(userID)
-    }
-    
     @IBAction func bookAppointment(_ sender: UIButton) {
         addAppointment()
         userAppointment()
-        appointmentsHistory()
         performSegue(withIdentifier: "bookAppointment", sender: self)
     }
     
