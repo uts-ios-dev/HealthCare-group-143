@@ -63,9 +63,21 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     }
     
     @IBAction func bookAppointment(_ sender: UIButton) {
-        addAppointment()
-        userAppointment()
-        performSegue(withIdentifier: "bookAppointment", sender: self)
+        if(doctorName.text != "" && patientName.text != ""){
+            addAppointment()
+            userAppointment()
+            performSegue(withIdentifier: "bookAppointment", sender: self)
+        }
+        else{
+            let title = "Reminder"
+            let message = "Please fill the details!"
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            self.present(alert,animated: true, completion: nil)
+        }
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -77,8 +89,12 @@ class BookAppointmentViewController: UIViewController,UIPickerViewDelegate,UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        doctorName.text = doctors[row]
+        
         return doctors[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        doctorName.text = doctors[row]
     }
     
     //Pick the date for the appointment

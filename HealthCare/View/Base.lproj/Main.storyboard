@@ -581,7 +581,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-NF-G1S">
-                                <rect key="frame" x="0.0" y="496" width="414" height="143"/>
+                                <rect key="frame" x="0.0" y="496" width="414" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -632,11 +632,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJQ-KF-uUN">
                                 <rect key="frame" x="20" y="81" width="37" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Logout" image="logout">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="logout:" destination="hke-Mx-qDd" eventType="touchUpInside" id="gMH-1A-3ab"/>
@@ -1286,13 +1286,13 @@
         <image name="add" width="36" height="36"/>
         <image name="banner" width="1024" height="683"/>
         <image name="history" width="36" height="36"/>
-        <image name="logout" width="225" height="225"/>
+        <image name="logout" width="981" height="958"/>
         <image name="notes" width="36" height="36"/>
         <image name="person" width="36" height="36"/>
         <image name="viewappointment" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RqS-ye-TOk"/>
+        <segue reference="U2I-d4-SwW"/>
         <segue reference="fme-XM-yN6"/>
         <segue reference="u4e-Ul-Zqq"/>
         <segue reference="imU-oU-UGv"/>
