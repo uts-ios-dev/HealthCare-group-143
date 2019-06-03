@@ -89,11 +89,6 @@ class EditProfileViewController: UIViewController ,UITextFieldDelegate{
 
     }
     
-    
-    @IBAction func backToHome(_ sender: UIButton) {
-        performSegue(withIdentifier: "saveDetail", sender: self)
-    }
-    
     @IBAction func saveDetails(_ sender: UIButton) {
         let genderString = genderTextField.titleForSegment(at: genderTextField.selectedSegmentIndex)!
         let user = ["uid": uid, "firstName": firstNameTextField.text!, "lastName": lastNameTextField.text!, "dateOfBirth": dateOfBirthTextField.text!, "gender": genderString, "address": addressTextField.text!, "phone": phoneTextField.text!, "email": emailTextField.text!, "role": "user"]

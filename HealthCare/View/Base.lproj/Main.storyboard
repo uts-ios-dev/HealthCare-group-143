@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6N6-1G-6i9">
                                 <rect key="frame" x="20" y="606" width="374" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.10980392156862745" green="0.57647058823529407" blue="0.22352941176470587" alpha="0.56603167809999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.54192970638597904" blue="0.21748275080580176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign Up"/>
@@ -538,6 +538,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="580897632.42307401">
                                     <!--2019-05-30 08:27:12 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="581198400">
+                                    <!--2019-06-02 20:00:00 +0000-->
+                                </date>
                                 <locale key="locale" localeIdentifier="en_AU"/>
                                 <connections>
                                     <action selector="applintmentDatePicker:" destination="lvA-oy-6tK" eventType="valueChanged" id="Rvg-M8-b3E"/>
@@ -745,6 +748,13 @@
                                     <outlet property="delegate" destination="hke-Mx-qDd" id="fhG-hZ-cD5"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appointment History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btf-QS-uVp">
+                                <rect key="frame" x="73" y="143" width="268" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" red="0.10980392160000001" green="0.54192970640000004" blue="0.21748275080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eSM-9z-cAG"/>
@@ -1019,18 +1029,6 @@
                                             <action selector="saveDetails:" destination="JA2-Sv-VfF" eventType="touchUpInside" id="eTZ-8x-Csn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBC-1w-6pc">
-                                        <rect key="frame" x="0.0" y="34" width="121" height="43"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backToHome:" destination="JA2-Sv-VfF" eventType="touchUpInside" id="XRf-2Y-PqO"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
@@ -1294,13 +1292,13 @@
         <image name="viewappointment" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U2I-d4-SwW"/>
-        <segue reference="Dkp-VE-Rir"/>
+        <segue reference="RqS-ye-TOk"/>
+        <segue reference="fme-XM-yN6"/>
         <segue reference="u4e-Ul-Zqq"/>
         <segue reference="imU-oU-UGv"/>
         <segue reference="s5S-xJ-t4o"/>
-        <segue reference="vGE-CZ-5eU"/>
-        <segue reference="EH1-ib-Xjr"/>
+        <segue reference="Xat-Op-rts"/>
+        <segue reference="1rt-wA-ju8"/>
         <segue reference="lki-Hb-E7g"/>
     </inferredMetricsTieBreakers>
 </document>
